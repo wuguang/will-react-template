@@ -4,6 +4,7 @@
   "description": "will_react_template",
   "main": "index.js",
   "scripts": {
+    "dev":"webpack serve --config ./build/webpack.dev.config.js",
     "start": "webpack --config ./build/webpack.dev.config.js"
   },
   "repository": {
@@ -19,6 +20,7 @@
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-loader": "^8.2.3",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^5.5.0",
     "less": "^4.1.2",
