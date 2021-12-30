@@ -8,20 +8,45 @@ module.exports = {
         filename:'[name].[contenthash:8].js',
         chunkFilename:'chunk/name.[contenthash:8].chunk.js',
         path:pathResolve('../dist'),
-        publicPath:'./',
+        //publicPath:'./',
         clean:true
     },
     module:{
         rules:[{
             test:/\.css$/,
-            use:'css-loader'
+            use:['style-loader','css-loader']
+        },{
+            test:/\.(jpe?g|png|gif)$/i,
+            type:'asset',
+            generator:{
+                filename:"asset/imgs/[name].[contenthash:8][ext]"
+            },
+            parser:{
+                dataUrlCondition:{
+                    maxSize:20*1024
+                }
+            }
+        },{
+            test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
+            type:'asset',
+            generator:{
+                filename:'asset/fonts/[name].[contenthash:8][ext]'
+            },
+            parser:{
+                dataUrlCondition:{
+                    maxSize:20*1024
+                }
+            }
         }]
     },
+    
     plugins:[
         new HtmlWebpackPlugin({
-            template:pathResolve('../template/index.html')
+            template:pathResolve('../template/index.html'),
+            inject:true,
         })
     ]
+    
     /*
     rules:[],
     resolve:{

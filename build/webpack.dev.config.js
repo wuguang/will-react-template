@@ -5,15 +5,16 @@ const path = require('path');
 module.exports= merge(baseConfig,{
     mode:'development',
     devServer:{
-        publicPath:"../dist",
-        /*
+        historyApiFallback:true,
         static:[{
-            directory: path.join(__dirname, '../dist'),
+            directory: path.join(__dirname, '../public'),
+            
+            // Can be:
+            // serveIndex: {} (options for the `serveIndex` option you can find https://github.com/expressjs/serve-index)
+            //serveIndex: true,
         }],
-        */
         compress:true,
         port:8080,
-        //historyApiFallback: true,
         open: {
             app: {
                 name: 'chrome',
