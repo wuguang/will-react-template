@@ -1,14 +1,42 @@
 {
-    "compilerOptions": {
-      "target": "ES5",             // 目标语言的版本
-      "module": "commonjs",        // 指定生成代码的模板标准
-      "noImplicitAny": true,       // 不允许隐式的 any 类型
-      "removeComments": true,      // 删除注释 
-      "preserveConstEnums": true,  // 保留 const 和 enum 声明
-      "sourceMap": true            // 生成目标文件的sourceMap文件
-    },
-    "files": [   // 指定待编译文件
-      "./src/app.tsx"  
-    ]
+	"compilerOptions": {
+		"target": "es6",
+		"module": "es2015",
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext"
+		],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"moduleResolution": "node",//node环境
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"jsx": "preserve",
+		"experimentalDecorators": true,
+		/*
+		"baseUrl": "./",
+		"paths": {
+			"@/*":["../src/*"],
+			"@pages/*":["../src/pages/*"],
+			"@comModules/*":["../src/comModules/*"],
+			"@assets/*":["../src/comModules/assets/*"],
+			"@gComponents/*":["../src/comModules/gComponents/*"],
+			"@gHooks/*":["../src/comModules/gHooks/*"],
+			"@store/*":["../src/comModules/store/*"],
+			"@bizFuns/*":["../src/comModules/bizFuns/*"],
+			"@config/*":["../src/comModules/config/*"],
+			"@utils/*":["../src/comModules/utils/*"]
+		}
+		*/
+	},
+	"include": [
+		"src",
+		"global.d.ts"
+	]
 }
-  
