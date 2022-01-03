@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const pathResolve = filePath=> path.resolve(__dirname,filePath);
+let cupNum = require('os').cpus();
 
 module.exports = {
 	context: __dirname,
@@ -12,7 +13,7 @@ module.exports = {
         path:pathResolve('../dist'),
         clean:true
     },
-	devtool:'eval-cheap-module-source-map',
+
     module:{
         rules:[{
             test:/\.(tsx?|jsx?)$/,
@@ -21,6 +22,7 @@ module.exports = {
             use:[{
                 loader:'babel-loader',
                 options:{
+					workds:cupNum?cupNum-1:1,
                     presets:[
                         ['@babel/preset-env'/*,{
 							// useBuiltIns: usage 会根据配置的浏览器兼容，实现了按需添加
@@ -45,6 +47,7 @@ module.exports = {
             }]
         },{
             test:/\.less$/,
+			include: pathResolve('../public'),
 			exclude: /node_modules/,
             use:[
 				'style-loader',
@@ -55,6 +58,8 @@ module.exports = {
         },
 		{
             test:/\.css$/,
+			include: pathResolve('../public'),
+			exclude: /node_modules/,
             use:[
 				'style-loader',
 				'css-loader',
@@ -63,6 +68,7 @@ module.exports = {
         },{
             test:/\.(jpe?g|png|gif)$/i,
             type:'asset',
+			include: pathResolve('../public'),
             generator:{
                 filename:"assets/imgs/[name].[contenthash:8][ext]"
             },
@@ -74,6 +80,7 @@ module.exports = {
         },{
             test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
             type:'asset',
+			include: pathResolve('../public'),
             generator:{
                 filename:'assets/fonts/[name].[contenthash:8][ext]'
             },
@@ -108,12 +115,14 @@ module.exports = {
         },
         extensions:['.tsx','.ts','.jsx','.js'],
 		//webpack 解析模块时应该搜索的目录
-		modules: [pathResolve('../src'), 'node_modules'],
+		modules: [pathResolve('../src'),pathResolve('../public'),'node_modules'],
     },
+
+	//html模板里 以cdn 模式引入的文件，编码内部可以用 import $ from 'jquery'，使用,
 	/*
-	//cdn 模式引入的文件，编码内部可以用 import $ from 'jquery'，使用,
 	externals: {
 		jquery: 'jQuery',
 	}
 	*/
+
 }

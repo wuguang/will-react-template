@@ -7,6 +7,7 @@ const path = require('path');
 
 let config = merge(baseConfig,{
 	mode:'development',
+	devtool:'eval-cheap-module-source-map',
 	devServer:{
 		historyApiFallback:true,
 		static:[{
