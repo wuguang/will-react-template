@@ -1,11 +1,9 @@
 const {merge} = require('webpack-merge');
-const baseConfig = require('./webpack.base.config');
+const baseConfig = require('./webpack.base.devConfig');
 const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-
-
-
-let config = merge(baseConfig,{
+let devConfig = merge(baseConfig,{
 	mode:'development',
 	devtool:'eval-cheap-module-source-map',
 	devServer:{
@@ -28,14 +26,14 @@ let config = merge(baseConfig,{
 });
 
 //正常导出
-//module.exports = config;
+//module.exports = devConfig;
 
 
 //loader 耗时分析导出
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const smp = new SpeedMeasurePlugin();
 module.exports = (env, argv) =>{
-	return smp.wrap(config);
+	return smp.wrap(devConfig);
 }
 
 

@@ -14,6 +14,7 @@ console.log($);
 
 const App = ()=>{
 	const [name, setName] = useState("");
+	console.log('hello world~~~')
 	return <div className="content">
 		<h2>Hello world ~~~</h2>
 		<img src={img01} />

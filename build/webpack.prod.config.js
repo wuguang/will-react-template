@@ -1,9 +1,18 @@
 const {merge} = require('webpack-merge');
 const baseConfig = require('./webpack.base.config');
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const PurgecssWebpackPlugin = require('purgecss-webpack-plugin');
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const pathResolve = filePath=> path.resolve(__dirname,filePath);
+const glob = require('glob');
 
-module.exports= merge(baseConfig,{
+const PATHS = {
+	src: pathResolve('../public')
+}
+
+let prodConfig = merge(baseConfig,{
     mode:'production',
 	module:{
 		rules:[
@@ -28,9 +37,25 @@ module.exports= merge(baseConfig,{
 		]
 	},
 	plugins:[
-		//抽取css到独立文件
+		new PurgecssWebpackPlugin({
+			paths: glob.sync(`${PATHS.src}/**/*`, {nodir: true})
+		}),
 		new MiniCssExtractPlugin({ // 添加插件
 			filename: '.assets/css/[name].[contenthash:8].css'
 		}),
-	]
+	],
+	optimization: {
+		minimize: true,
+		minimizer: [
+			//压缩js
+			new TerserPlugin()
+		]
+	},
 })
+
+module.exports = prodConfig;
+
+
+
+
+

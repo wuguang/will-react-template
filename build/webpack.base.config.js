@@ -20,30 +20,36 @@ module.exports = {
 			include: pathResolve('../src'),
 			exclude: /node_modules/,
             use:[{
-                loader:'babel-loader',
-                options:{
-					workds:cupNum?cupNum-1:1,
-                    presets:[
-                        ['@babel/preset-env'/*,{
-							// useBuiltIns: usage 会根据配置的浏览器兼容，实现了按需添加
-							// pollfill的一些配置
-							useBuiltIns: 'usage',
-							corejs: {
-								"version": 3, // 使用core-js@3
-								"proposals": true,
-							},
-							//"modules": true
-						}*/],
-                        '@babel/preset-react',
-                        '@babel/preset-typescript'
-                    ],
-					plugins: [
-						/*
-						["@babel/plugin-proposal-decorators", { legacy: true }],
-						["@babel/plugin-proposal-class-properties", { loose: true }]
-						*/
-					]
-                }
+                    loader:'thread-loader',
+                    options:{
+                        worker:cupNum?cupNum-1:1,
+                    }
+                },{
+                    loader:'babel-loader',
+                    options:{
+						//开启babel的缓存
+						cacheDirectory:true,
+                        presets:[
+                            ['@babel/preset-env'/*,{
+                                // useBuiltIns: usage 会根据配置的浏览器兼容，实现了按需添加
+                                // pollfill的一些配置
+                                useBuiltIns: 'usage',
+                                corejs: {
+                                    "version": 3, // 使用core-js@3
+                                    "proposals": true,
+                                },
+                                //"modules": true
+                            }*/],
+                            '@babel/preset-react',
+                            '@babel/preset-typescript'
+                        ],
+                        plugins: [
+                            /*
+                            ["@babel/plugin-proposal-decorators", { legacy: true }],
+                            ["@babel/plugin-proposal-class-properties", { loose: true }]
+                            */
+                        ]
+                    }
             }]
         },{
             test:/\.less$/,
@@ -62,6 +68,7 @@ module.exports = {
 			exclude: /node_modules/,
             use:[
 				'style-loader',
+				'cache-loader',
 				'css-loader',
 				'postcss-loader'
 			]
@@ -117,12 +124,14 @@ module.exports = {
 		//webpack 解析模块时应该搜索的目录
 		modules: [pathResolve('../src'),pathResolve('../public'),'node_modules'],
     },
-
 	//html模板里 以cdn 模式引入的文件，编码内部可以用 import $ from 'jquery'，使用,
-	/*
 	externals: {
 		jquery: 'jQuery',
+	},
+	cache: {
+		//cache的生成方式
+		type: 'filesystem',
 	}
-	*/
+
 
 }
