@@ -1,5 +1,5 @@
 const {merge} = require('webpack-merge');
-const baseConfig = require('./webpack.base.devConfig');
+const baseConfig = require('./webpack.base.config.js');
 const path = require('path');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 

@@ -30,16 +30,13 @@ module.exports = {
 						//开启babel的缓存
 						cacheDirectory:true,
                         presets:[
-                            ['@babel/preset-env'/*,{
+                            ['@babel/preset-env',{
                                 // useBuiltIns: usage 会根据配置的浏览器兼容，实现了按需添加
-                                // pollfill的一些配置
                                 useBuiltIns: 'usage',
-                                corejs: {
-                                    "version": 3, // 使用core-js@3
-                                    "proposals": true,
-                                },
-                                //"modules": true
-                            }*/],
+                                corejs: 3,
+                                //不以commonjs打包，方便tree-shaking
+                                modules: false,
+                            }],
                             '@babel/preset-react',
                             '@babel/preset-typescript'
                         ],
