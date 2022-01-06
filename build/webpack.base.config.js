@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const pathResolve = filePath=> path.resolve(__dirname,filePath);
-let cupNum = require('os').cpus();
+const cupNum = require('os').cpus();
 
 module.exports = {
 	context: __dirname,
@@ -13,7 +13,6 @@ module.exports = {
         path:pathResolve('../dist'),
         clean:true
     },
-
     module:{
         rules:[{
             test:/\.(tsx?|jsx?)$/,

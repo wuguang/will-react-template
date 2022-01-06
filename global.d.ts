@@ -1,3 +1,11 @@
+//确保是模块
+export {};
+
+declare global{
+	type languageType = 'zhCN'|'enUS';
+	type routerType = 'HashRouter'|'BrowserRouter';
+};
+
 declare module '*.svg'
 declare module '*.png'
 declare module '*.jpg'
