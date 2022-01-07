@@ -40,10 +40,9 @@ module.exports = {
                             '@babel/preset-typescript'
                         ],
                         plugins: [
-                            /*
-                            ["@babel/plugin-proposal-decorators", { legacy: true }],
-                            ["@babel/plugin-proposal-class-properties", { loose: true }]
-                            */
+                            ["@babel/plugin-proposal-decorators",{legacy:true}],
+                            ["@babel/plugin-proposal-class-properties"],
+                            ["@babel/plugin-syntax-dynamic-import"],
                         ]
                     }
             }]
@@ -105,13 +104,13 @@ module.exports = {
     resolve:{
 		//与tsconfig是否配置，似乎无关
         alias:{
-			"@":pathResolve('../src'),
             '@pages':pathResolve('../src/pages'),
             '@comModules':pathResolve('../src/comModules'),
             "@public":pathResolve("../public"),
             '@gComponents':pathResolve('../src/comModules/gComponents'),
             '@gHooks':pathResolve('../src/comModules/gHooks'),
             '@store':pathResolve('../src/comModules/store'),
+            '@layout':pathResolve('../src/layout'),
             '@bizFuns':pathResolve('../src/comModules/bizFuns'),
             '@config':pathResolve('../src/comModules/config'),
             '@utils':pathResolve('../src/comModules/utils')

@@ -1,40 +1,43 @@
 {
-	"compilerOptions": {
-		"target": "es6",
-		"module": "esnext",
-		"lib": [
-			"dom",
-			"dom.iterable",
-			"esnext"
-		],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"noEmit": true,
-		"jsx": "react",
-		"experimentalDecorators": true,
+    "compilerOptions": {
+        "sourceMap": true,
+        "target": "es6",
+        "jsx": "react",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "declaration": false,
+        "noImplicitAny": false,
+        "noImplicitReturns": false,
+        "noUnusedLocals": false,
+        "removeComments": true,
+        "strictNullChecks": false,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "outDir": "dist",
+        "lib":["es6","es7","dom"],
 		"baseUrl": "./",
 		"paths": {
-			"@/*":["../src/*"],
-			"@pages/*":["../src/pages/*"],
-			"@comModules/*":["../src/comModules/*"],
-			"@assets/*":["../src/comModules/assets/*"],
-			"@gComponents/*":["../src/comModules/gComponents/*"],
-			"@gHooks/*":["../src/comModules/gHooks/*"],
-			"@store/*":["../src/comModules/store/*"],
-			"@bizFuns/*":["../src/comModules/bizFuns/*"],
-			"@config/*":["../src/comModules/config/*"],
-			"@utils/*":["../src/comModules/utils/*"]
+			"@pages/*":["./src/pages/*"],
+			"@comModules/*":["./src/comModules/*"],
+			"@assets/*":["./src/comModules/assets/*"],
+			"@gComponents/*":["./src/comModules/gComponents/*"],
+			"@gHooks/*":["./src/comModules/gHooks/*"],
+			"@store/*":["./src/comModules/store/*"],
+			"@bizFuns/*":["./src/comModules/bizFuns/*"],
+			"@config/*":["./src/comModules/config/*"],
+			"@utils/*":["./src/comModules/utils/*"],
+            "@public/*":["./public/*"]
 		}
 	},
 	"include": [
 		"src",
 		"global.d.ts"
-	]
+	],
+	"exclude": [
+        "dist",
+        "buildResult",
+        "node_modules"
+    ]
 }

@@ -4,7 +4,26 @@ export {};
 declare global{
 	type languageType = 'zhCN'|'enUS';
 	type routerType = 'HashRouter'|'BrowserRouter';
+
+	// props 里的路由属性
+	interface RouteProps{
+		match?:any;
+		location?:any;
+		history?:any;
+	}
+
+	interface RouteItemProps{
+		path:string;
+		component?:string;
+		navigate?: string
+		exact?:boolean;
+		routes?:routeType[];
+	}
+
+
 };
+
+
 
 declare module '*.svg'
 declare module '*.png'
@@ -14,23 +33,23 @@ declare module '*.gif'
 declare module '*.bmp'
 declare module '*.tiff'
 
-declare module '*.module.css' {
+declare module '*.css' {
   const classes: { readonly [key: string]: string }
   export default classes
 }
 
-declare module '*.module.less' {
+declare module '*.less' {
   const classes: { readonly [key: string]: string }
   export default classes
 }
 
-declare module '*.module.sass' {
+declare module '*.sass' {
   const classes: { readonly [key: string]: string }
   export default classes
 }
 
 
-declare module '*.module.scss' {
+declare module '*.scss' {
   const classes: { readonly [key: string]: string }
   export default classes
 }
