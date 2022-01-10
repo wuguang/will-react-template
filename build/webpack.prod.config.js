@@ -81,6 +81,11 @@ let prodConfig = merge(baseConfig,{
 module.exports = prodConfig;
 
 
+/*
+(node:9614) [DEP_WEBPACK_COMPILATION_OPTIMIZE_CHUNK_ASSETS] DeprecationWarning: optimizeChunkAssets is deprecated (use Compilation.hooks.processAssets instead and use one of Compilation.PROCESS_ASSETS_STAGE_* as stage option)
+(Use `node --trace-deprecation ...` to show where the warning was created)
+*/
+
 
 
 
