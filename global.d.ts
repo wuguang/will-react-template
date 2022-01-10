@@ -14,14 +14,12 @@ declare global{
 
 	interface RouteItemProps{
 		path:string;
-		component?:string;
+		component?:any|string;
 		navigate?: string
 		exact?:boolean;
-		routes?:routeType[];
+		routes?:RouteItemProps[];
 	}
-
-
-};
+}
 
 
 
