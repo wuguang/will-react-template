@@ -115,7 +115,7 @@ module.exports = {
             '@config':pathResolve('../src/comModules/config'),
             '@utils':pathResolve('../src/comModules/utils')
         },
-        extensions:['.tsx','.ts','.jsx','.js'],
+        extensions:['.tsx','.ts','.jsx','.js','.jpg','.jpeg','.png','.gif'],
 		//webpack 解析模块时应该搜索的目录
 		modules: [pathResolve('../src'),pathResolve('../public'),'node_modules'],
     },
