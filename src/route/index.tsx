@@ -1,11 +1,15 @@
 
 
 import React,{Suspense,useEffect,useCallback} from 'react';
-import styled from 'styled-component';
+import styled from 'styled-components';
 import {Route,HashRouter,BrowserRouter,Routes,Link,Navigate,Outlet} from 'react-router-dom';
 import config from '@config/index';
 //import 动态导入问题，此处component路径不能动态配置,需写全
+//手动写magic comments 不需要插件，节省编译时间
 //见 https://webpack.js.org/api/module-methods/#dynamic-expressions-in-import
+
+const MenuLayout = React.lazy(()=>import(/* webpackChunkName: "menuLayout" */'./menuLayout'));
+
 const Login= React.lazy(()=>import(/* webpackChunkName: "login" */'@pages/login'));
 const Register = React.lazy(()=>import(/* webpackChunkName: "register" */'@pages/register'));
 const AuthLayout = React.lazy(()=>import(/* webpackChunkName: "authLayout" */'@pages/auth'));
@@ -55,36 +59,7 @@ const routerConfig:RouterConfigProps = {
     
 };
 
-
-
-function MenuLayout() {
-    return (
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="login">Login</Link>
-            </li>
-            <li>
-              <Link to="register">Register</Link>
-            </li>
-            <li>
-              <Link to="auth">AuthLayout</Link>
-            </li>
-            <li><Link to="/auth/market/marketPage01">marketPage01</Link></li>
-            <li><Link to="/auth/product/productPage01">productPage01</Link></li>
-            <li>
-              <Link to="/nothing-here">Nothing Here --- to login</Link>
-            </li>
-          </ul>
-        </nav>
-        <Outlet />
-      </div>
-    );
-  }
-
 export default ()=>{
-
     const getComponent = (Comp)=>{
         return <React.Suspense fallback={<>loading...</>}>
             <Comp />
@@ -92,7 +67,7 @@ export default ()=>{
     }
     return <BrowserRouter>
         <Routes>
-            <Route path="/" element={<MenuLayout />}>
+            <Route path="/" element={getComponent(MenuLayout)}>
                 <Route path="path" element={getComponent(Login)} />
                 <Route path="register" element={getComponent(Register)} />
                 <Route path="auth" element={getComponent(AuthLayout)} />
