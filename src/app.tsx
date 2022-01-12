@@ -1,6 +1,7 @@
 import React,{ useState } from "react";
 import ReactDom from 'react-dom';
 import {ConfigProvider,message} from 'antd';
+import { Link } from "react-router-dom";
 import zhCN from 'antd/lib/locale/zh_CN';
 import enUS from 'antd/lib/locale/en_US';
 import { observer } from "mobx-react-lite";
@@ -20,13 +21,11 @@ const App = observer(()=>{
 	console.log(`config = ${config}`);
 	console.log(`uiData = ${uiData}`);
 	console.log(`uiData.language = ${uiData.language}`);
-	return <ConfigProvider locale={antdLocaleMap[uiData.language]}>
-		<div>
-			hello world~~
-			<img src={img01} />
-			<RouteMain />
-		</div>
-	</ConfigProvider>
+	return <div>
+		hello world~~
+		<img src={img01} />
+		<RouteMain />
+	</div>
 });
 
 
@@ -35,3 +34,12 @@ ReactDom.render(<App />,document.getElementById('root'));
 
 
 
+/*
+<ConfigProvider locale={antdLocaleMap[uiData.language]}>
+	<div>
+		hello world~~
+		<img src={img01} />
+		<RouteMain />
+	</div>
+</ConfigProvider>
+*/
