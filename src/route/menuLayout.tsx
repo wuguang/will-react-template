@@ -2,9 +2,36 @@ import * as React from "react";
 import { Link, Outlet } from "react-router-dom";
 import styled from "styled-components";
 
+const MenuTag = styled.div`
+    width:100%;
+    height:30px;
+    background: #e8e8e8;
+
+    nav>ul{
+        display: flex;
+        margin: 0;
+        padding:0;
+        list-style:none;
+    }
+
+    nav>ul>li{
+        list-style:none；
+        height: 30px;
+        line-height:30px;
+        padding:0 10px;
+        font-size:12px;
+    }
+    nav>ul>li a{
+        color:#738591;
+    }
+    nav>ul>li a:hover{
+        color:#eb6e00;
+    }
+`
+
 export default function MenuLayout() {
 	return (
-		<div>
+		<MenuTag>
 			<nav>
 				<ul>
 					<li>
@@ -26,12 +53,12 @@ export default function MenuLayout() {
 					</li>
 					<li>
 						<Link to="/nothing-here">
-							Nothing Here --- to login
+							No-Match
 						</Link>
 					</li>
 				</ul>
 			</nav>
 			<Outlet />
-		</div>
+		</MenuTag>
 	);
 }

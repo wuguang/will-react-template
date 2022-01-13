@@ -7,7 +7,6 @@ const prodConfig = require('../build/webpack.prod.config.js');
 
 
 let compiler = webpack(devConfig);
-
 let  arguments = process.argv.splice(2);
 
 console.log(arguments);

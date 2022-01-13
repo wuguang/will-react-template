@@ -16,8 +16,9 @@ declare global{
 		path:string;
 		component?:any|string;
 		navigate?: string
-		exact?:boolean;
 		routes?:RouteItemProps[];
+		isIndex?:boolean;
+		children?:RouteItemProps[];
 	}
 }
 
