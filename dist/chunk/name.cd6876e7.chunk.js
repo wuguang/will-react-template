@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[189],{6440:function(e,n,t){t.r(n);var l=t(7378),u=t(6740);n.default=function(e){return l.createElement("div",null,l.createElement("div",null," I am auth page  layout  behind is pageContent ~~ "),l.createElement(u.j3,null))}}}]);

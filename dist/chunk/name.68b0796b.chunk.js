@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[235],{4002:function(e,u,t){t.r(u);var n=t(7378);u.default=function(){return n.createElement("div",null," I am auth product page01 ~~ ")}}}]);

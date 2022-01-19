@@ -18,12 +18,13 @@ module.exports = {
             test:/\.(tsx?|jsx?)$/,
 			include: pathResolve('../src'),
 			exclude: /node_modules/,
-            use:[{
+            use:[/*{
                     loader:'thread-loader',
                     options:{
                         worker:cupNum?cupNum-1:1,
                     }
-                },{
+                },
+                */{
                     loader:'babel-loader',
                     options:{
 						//开启babel的缓存
@@ -127,6 +128,4 @@ module.exports = {
 		//cache的生成方式
 		type: 'filesystem',
 	}
-
-
 }

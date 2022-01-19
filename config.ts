@@ -1,4 +1,4 @@
-const mockPort:number = 7080;
+const mockPort:number = 3000;
 
 module.exports = {
     'devServerAddr':'https://www.baidu.com',

@@ -13,7 +13,7 @@ const {uiData} = store;
 const antdLocaleMap:any = {
 	'zhCN':zhCN,
 	'enUS':enUS,
-}
+};
 
 const App = observer(()=>{
 	console.log(`config = ${config}`);
@@ -24,6 +24,7 @@ const App = observer(()=>{
 
 //<RouteMain />
 ReactDom.render(<App />,document.getElementById('root'));
+
 
 /*
 <ConfigProvider locale={antdLocaleMap[uiData.language]}>

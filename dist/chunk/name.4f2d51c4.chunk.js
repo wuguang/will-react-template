@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[535],{6385:function(e,n,u){u.r(n);var t=u(7378);n.default=function(){return t.createElement("div",null,"I am login page")}}}]);

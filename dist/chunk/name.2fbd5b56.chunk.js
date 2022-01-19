@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[685],{5821:function(e,n,t){t.r(n);var u=t(7378);n.default=function(){return u.createElement("div",null,"I am register page ")}}}]);
