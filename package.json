@@ -1,5 +1,5 @@
 {
-  "name": "will-react-template",
+  "name": "will-react-cli",
   "version": "1.0.0",
   "description": "will_react_template",
   "main": "index.js",
@@ -7,10 +7,7 @@
     "start": "webpack serve --config ./build/webpack.dev.config.js",
     "dev": "webpack serve --config ./build/webpack.dev.config.js",
     "debug": "node --inspect-brk ./script/index.js",
-    "build": "webpack --config ./build/webpack.prod.config.js",
-    "eslint": "eslint --ext .js,.jsx,.ts,.tsx,.vue --ignore-pattern \"bad.*\" .",
-    "prettier": "prettier -l \"./**/*\"",
-    "prettier:fix": "prettier --write -l \"./**/*\"",
+    "build": "webpack --config ./build/webpack.prod.config.js"
   },
   "repository": {
     "type": "git",
@@ -42,8 +39,11 @@
     "babel-loader": "^8.2.3",
     "body-parser": "^1.19.1",
     "cache-loader": "^4.1.0",
+    "chalk": "^5.0.0",
+    "commander": "^8.3.0",
     "core-js": "^3.20.1",
     "cross-env": "^7.0.3",
+    "cross-spawn": "^7.0.3",
     "css-loader": "^6.5.1",
     "eslint": "^8.7.0",
     "eslint-config-alloy": "^4.4.0",
@@ -61,6 +61,7 @@
     "less-loader": "^10.2.0",
     "mini-css-extract-plugin": "^2.4.5",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "ora": "^6.0.1",
     "os": "^0.1.2",
     "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",

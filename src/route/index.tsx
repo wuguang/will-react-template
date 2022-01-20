@@ -5,9 +5,9 @@ import styled from 'styled-components';
 import {Route,HashRouter,BrowserRouter,Routes,Link,Navigate,Outlet} from 'react-router-dom';
 import config from '@config/index';
 
-//import 动态导入问题，此处component路径不能动态配置,需写全
-//手动写magic comments 不需要插件，节省编译时间
-//见 https://webpack.js.org/api/module-methods/#dynamic-expressions-in-import
+// import 动态导入问题，此处component路径不能动态配置,需写全
+// 手动写magic comments 不需要插件，节省编译时间
+// 见 https://webpack.js.org/api/module-methods/#dynamic-expressions-in-import
 
 const MenuLayout = React.lazy(()=>import(/* webpackChunkName: "menuLayout" */'./menuLayout'));
 const Login= React.lazy(()=>import(/* webpackChunkName: "login" */'@pages/login'));
@@ -52,7 +52,7 @@ const routerConfig:RouterConfigProps = {
                 {
                     path:'*',
                     component:Login,
-                    //没有任何匹配时跳转到/login页面
+                    // 没有任何匹配时跳转到/login页面
                 }
             ]
         }
@@ -70,12 +70,12 @@ export default ()=>{
     const getRoutes = useCallback((childrenRoutes:RouteItemProps[])=>{
         let routeItemArr:any = [];
         childrenRoutes.forEach(({component,path,children,isIndex})=>{
-            //没有子路由
+            // 没有子路由
             if(!children || children.length === 0){
                 let routeItem = isIndex?<Route key={path} index element={ getComponent(component)} />:<Route key={path} path={path} element={ getComponent(component)} />;
                 routeItemArr.push(routeItem);
             }else if(children?.length>0){
-                //有子路由, route嵌套route
+                // 有子路由, route嵌套route
                 routeItemArr.push(<Route key={path} path={path} element={getComponent(component)}>
                     {getRoutes(children)}
                 </Route>);

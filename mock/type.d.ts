@@ -1,4 +1,4 @@
-type responseCommonData = {
+interface responseCommonData {
     returnCode:number;
     returnDesc:string;
     data:object;

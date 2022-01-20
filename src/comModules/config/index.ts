@@ -1,5 +1,5 @@
 
 
 export default {
-    routerType:'HashRouter'
+	routerType:'HashRouter'
 }

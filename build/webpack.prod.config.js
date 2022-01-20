@@ -3,10 +3,10 @@ const baseConfig = require('./webpack.base.config.js');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-//压缩css
+// 压缩css
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PurgecssWebpackPlugin = require('purgecss-webpack-plugin');
-//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const pathResolve = filePath=> path.resolve(__dirname,filePath);
 const glob = require('glob');
 
@@ -70,9 +70,9 @@ let prodConfig = merge(baseConfig,{
 	
 		minimize: true,
 		minimizer: [
-			//压缩css
+			// 压缩css
 			new OptimizeCssAssetsPlugin(),
-			//压缩js
+			// 压缩js
 			new TerserPlugin()
 		]
 	},

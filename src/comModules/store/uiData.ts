@@ -6,14 +6,14 @@ interface UiDataInf{
 }
 
 class UiData implements UiDataInf{
-    //默认中文
+    // 默认中文
     public language:languageType = 'zhCN';
 
-    consturctor(){
+    public consturctor(){
         makeAutoObservable(this);
     }
-
-    setLanguage(language:languageType):void{
+    
+    public setLanguage(language:languageType):void{
         this.language = language;
     }
 }

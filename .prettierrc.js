@@ -3,7 +3,7 @@ module.exports = {
     // use 4 spaces for indentation
     tabWidth: 4,
     // use spaces instead of indentations
-    useTabs: false,
+    useTabs: true,
     // semicolon at the end of the line
     semi: true,
     // use single quotes

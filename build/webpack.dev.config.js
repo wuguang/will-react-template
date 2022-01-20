@@ -8,83 +8,11 @@ const pathResolve = filePath=> path.resolve(__dirname,filePath);
 
 let eslintOptions = {
 	overrideConfig:{
-		globals: {
-	        // 要在配置文件中配置全局变量, 对于每个全局变量键，将对应的值设置为 "writable" 以允许重写变量，或 "readonly" 不允许重写变量
-
-	        // "Babel": "writable",
-
-	        // "React": "writable"
-	    },
-	    plugins: [
-	        // 在配置文件里配置插件时, 可以使用 plugins 关键字来存放插件名字的列表。插件名称可以省略 eslint-plugin- 前缀。
-	        'react',
-	        'jsx-a11y',
-	        'react-hooks',
-	        'import',
-	        'prettier',
-	    ],
-	    rules: {
-	        // 可以使用 rules 连同错误级别和任何你想使用的选项，在配置文件中进行对airbnb规则的修改
-	        indent: ['error', 4],
-	        semi: [
-	            'error',
-	            'always',
-	            {
-	                omitLastInOneLineBlock: true,
-	            },
-	        ],
-	        'react/jsx-indent': ['error', 4],
-	        'linebreak-style': ['error', 'windows'],
-	        'react/jsx-filename-extension': [
-	            'error',
-	            {
-	                extensions: ['.js', '.jsx', '.ts', '.tsx'],
-	            },
-
-	        ],
-
-	        'class-methods-use-this': 'off',
-
-	        'import/extensions': 'off',
-
-	        'import/no-unresolved': 'off',
-
-	        'prettier/prettier': 'error',
-
-	        // 'sort-imports': ['error', {
-
-	        //     ignoreCase: false,
-
-	        //     ignoreDeclarationSort: false,
-
-	        //     ignoreMemberSort: false,
-
-	        //     memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-
-	        // }],
-
-	        // "global-require": "off",
-
-	        // "no-underscore-dangle": "off",
-
-	        // "no-new-func": "off",
-
-	        // "no-param-reassign": "off",
-
-	        // "react/prefer-stateless-function": "off",
-
-	        // "react/no-multi-comp": "off",
-
-	        // "react/jsx-no-bind": "off",
-
-	        // "react/jsx-indent": "off",
-
-	        // "react/jsx-first-prop-new-line": "off",
-
-	        // "react/jsx-filename-extension": "off",
-
-	        // "no-restricted-syntax": "off"
-	    }
+		globals:{
+			//	要在配置文件中配置全局变量,对于每个全局变量键，将对应的值设置为"writable"以允许重写变量，或"readonly"不允许重写变量
+			//	"Babel":"writable",
+			//  "React": "writable"
+		}
 	}
 };
 
@@ -101,7 +29,7 @@ let eslintOptions = {
 				directory: path.join(__dirname, '../public'),
 				// Can be:
 				// serveIndex: {} (options for the `serveIndex` option you can find https://github.com/expressjs/serve-index)
-				//serveIndex: true,
+				// serveIndex: true,
 			}],
 			compress:true,
 			port:3030,
@@ -115,11 +43,11 @@ let eslintOptions = {
 	}
 );
 
-//正常导出
-//module.exports = devConfig;
+// 正常导出
+// module.exports = devConfig;
 
 
-//loader 耗时分析导出
+// loader 耗时分析导出
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const smp = new SpeedMeasurePlugin();
 module.exports = (env, argv) =>{

@@ -17,14 +17,14 @@ const handleRequest = (res,item,param)=>{
 }
 
 const appRoute = ()=>{
-    //post 方法处理函数
+    // post 方法处理函数
     Object.entries(postApi).forEach(([path,item]:any)=>{
         app.post(path,(req,res)=>{
             handleRequest(res,item,req.body);
         });
     });
 
-    //get 方法处理函数
+    // get 方法处理函数
     Object.entries(getApi).forEach(([path,item]:any)=>{
         app.get(path,(req,res)=>{
             handleRequest(res,item,req.body);

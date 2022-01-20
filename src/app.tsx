@@ -22,7 +22,7 @@ const App = observer(()=>{
 	return <RouteMain />
 });
 
-//<RouteMain />
+// <RouteMain />
 ReactDom.render(<App />,document.getElementById('root'));
 
 
